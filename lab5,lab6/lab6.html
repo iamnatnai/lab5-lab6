@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student = [
+{
+fullname: 'นายตั้งใจ เรียนมาก',
+age: 18,
+year: 1,
+gpa: 3.40,
+help: true
+},
+{
+fullname: 'นายส่งงาน ตลอดมา',
+age: 19,
+year: 2,
+gpa: 3.00,
+help: false
+},
+{
+fullname: 'นางสาวใส่ใจ ดีงาม',
+age: 20,
+year: 3,
+gpa: 2.90,
+help: true
+},
+{
+fullname: 'นายธนกิจ ลูกน้ำ',
+age: 20,
+year: 3,
+gpa: 4.00,
+help: true
+},
+{
+fullname: 'นายกันตพัฒน์ ร็อคแย่',
+age: 20,
+year: 4,
+gpa: 1.00,
+help: true
+},
+{
+fullname: 'นางแก้ม ร้องเพลงเพราะ',
+age: 20,
+year: 4,
+gpa: 3.50,
+help: true
+},
+{
+fullname: 'นายณภัทร แมนยู',
+age: 20,
+year: 4,
+gpa: 3.50,
+help: true
+},
+
+]
+function GT(st){
+    let yeah = {
+        1:[],2:[],3:[],4:[]
+    }
+    for(i in st)
+    {   let years = 2564 - st[i].age
+
+        // console.log(st[i]);
+        if (st[i].gpa >= 3.20) {
+            let passage
+            if (st[i].help) {
+                passage = st[i].fullname + "เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย"
+                
+                console.log(st[i].fullname+"เกิดเมื่อปี"+years+"ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย");
+            } else {
+                passage = st[i].fullname + "เนื่องจากเกรดเฉลี่ยถึงเกณฑ์แต่ไม่ได้ช่วยภาควิชา"
+                console.log(st[i].fullname+"เกิดเมื่อปี"+years+"ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์แต่ไม่ได้ช่วยภาควิชา ");
+            }
+            yeah[st[i].year].push(passage)
+        }
+        else if(st[i].gpa>= 2.75 && st[i].year >= 2 && st[i].help){
+            let passage = st[i].fullname + "เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย"
+                console.log(st[i].fullname+"เกิดเมื่อปี"+years+"ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย");
+            yeah[st[i].year].push(passage)
+        }
+        else {
+            if (st[i].help) {
+                console.log(st[i].fullname+"เกิดเมื่อปี"+years+"ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยไม่ถึงเกณฑ์ แต่ช่วยงานภาควิชา");
+            } else {
+                console.log(st[i].fullname+"เกิดเมื่อปี"+years+"ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยไม่ถึงเกณฑ์ และยังไม่ได้ช่วยงานภาควิชา");
+            }
+        }
+        
+    }
+    for (let i = 1; i <= 4 ; i++) {
+            console.log("ชั้นปีที่"+i);
+            if (yeah[i].length==0) {
+                console.log("ไม่มี");
+            } else {
+                for (let j = 0; j < yeah[i].length; j++) {
+                    console.log(yeah[i][j]);
+                }
+            }
+            
+        }
+}
+GT(student)
+    </script>
+</body>
+</html>
